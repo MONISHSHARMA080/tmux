@@ -146,23 +146,23 @@ for ((i = 1; i < ${#COMMANDS[@]}; i++)); do
 done
 
 # --- Create Help Window ---
-help_window_index=${#COMMANDS[@]} # Index for the help window
-help_window_name="tmux-help"
-echo "Creating help window ('$help_window_name') at index $help_window_index"
-tmux new-window -t "$SESSION_NAME" -n "$help_window_name" -c "$CURRENT_DIR" # Start help in original dir
-help_target="$SESSION_NAME:$help_window_name"                               # Target by name
-
-# Wait briefly before sending keys to help window too
-sleep 0.1
-
-tmux send-keys -t "$help_target" "echo -e '\n\033[1mTMUX HELPER TIPS:\033[0m'" C-m
-tmux send-keys -t "$help_target" "echo -e '• \033[1mCtrl+b n\033[0m - Next window, \033[1mCtrl+b p\033[0m - Previous window'" C-m
-tmux send-keys -t "$help_target" "echo -e '• \033[1mCtrl+b d\033[0m or \033[1mCtrl+b q\033[0m - Detach (session stays alive)'" C-m
-tmux send-keys -t "$help_target" "echo -e '• To reattach: \033[1mtmux attach -t $SESSION_NAME\033[0m'" C-m
-tmux send-keys -t "$help_target" "echo -e '• To kill: \033[1mtmux kill-session -t $SESSION_NAME\033[0m'" C-m
-tmux send-keys -t "$help_target" "echo -e '\nThis help window will stay open for reference.'" C-m
-tmux send-keys -t "$help_target" "echo -e 'Press Ctrl+b [ to enter copy mode, then use Space to begin selection.'" C-m
-tmux send-keys -t "$help_target" "echo -e 'Navigate to select text, then press Enter to copy.'" C-m
+# help_window_index=${#COMMANDS[@]} # Index for the help window
+# help_window_name="tmux-help"
+# echo "Creating help window ('$help_window_name') at index $help_window_index"
+# tmux new-window -t "$SESSION_NAME" -n "$help_window_name" -c "$CURRENT_DIR" # Start help in original dir
+# help_target="$SESSION_NAME:$help_window_name"                               # Target by name
+#
+# # Wait briefly before sending keys to help window too
+# sleep 0.1
+#
+# tmux send-keys -t "$help_target" "echo -e '\n\033[1mTMUX HELPER TIPS:\033[0m'" C-m
+# tmux send-keys -t "$help_target" "echo -e '• \033[1mCtrl+b n\033[0m - Next window, \033[1mCtrl+b p\033[0m - Previous window'" C-m
+# tmux send-keys -t "$help_target" "echo -e '• \033[1mCtrl+b d\033[0m or \033[1mCtrl+b q\033[0m - Detach (session stays alive)'" C-m
+# tmux send-keys -t "$help_target" "echo -e '• To reattach: \033[1mtmux attach -t $SESSION_NAME\033[0m'" C-m
+# tmux send-keys -t "$help_target" "echo -e '• To kill: \033[1mtmux kill-session -t $SESSION_NAME\033[0m'" C-m
+# tmux send-keys -t "$help_target" "echo -e '\nThis help window will stay open for reference.'" C-m
+# tmux send-keys -t "$help_target" "echo -e 'Press Ctrl+b [ to enter copy mode, then use Space to begin selection.'" C-m
+# tmux send-keys -t "$help_target" "echo -e 'Navigate to select text, then press Enter to copy.'" C-m
 
 # --- Final Steps ---
 # Start with the first command window selected (target by final name)
